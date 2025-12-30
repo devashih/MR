@@ -230,3 +230,9 @@ Path(MODEL_DIR).mkdir(parents=True, exist_ok=True)
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+DEBUG = False
+
+ALLOWED_HOSTS = ['*']
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
