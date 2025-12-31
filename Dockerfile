@@ -10,7 +10,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN python manage.py collectstatic --noinput
+# Ensure logs directory always exists (runtime safe)
+RUN mkdir -p /app/logs && chmod 777 /app/logs
 
-CMD ["gunicorn", "MR.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "movie_recommendation.wsgi:application", "--bind", "0.0.0.0:8000"]
+
 
